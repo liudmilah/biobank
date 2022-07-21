@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "standard",
+    "plugin:prettier/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "import", "prettier", "jest-dom", "testing-library"],
+  "settings": {
+    "react": {
+      "version": "17"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-unresolved": "error",
+    "import/order": ["error", {"groups": ["builtin", "external", "internal", "parent", "sibling", "index"]}]
+  }
+}

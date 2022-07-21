@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  bb:
+    image: ${REGISTRY}/bb:${IMAGE_TAG}
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik-public
+      - traefik.http.routers.bb.rule=Host(`biobank.by`) || Host(`www.biobank.by`)
+      - traefik.http.services.bb.loadBalancer.server.port=80
+      - traefik.http.middlewares.bb-redirect.redirectRegex.regex=^(https?://)www.biobank.by/(.*)$$
+      - traefik.http.middlewares.bb-redirect.redirectRegex.replacement=$${1}biobank.by/$${2}
+      - traefik.http.middlewares.bb-redirect.redirectRegex.permanent=true
+      - traefik.http.routers.bb.middlewares=bb-redirect,secure-headers
+      - traefik.http.routers.bb.entryPoints=https
+      - traefik.http.routers.bb.tls=true
+      - traefik.http.routers.bb.tls.certResolver=letsEncrypt
+    networks:
+      - traefik-public
+      - default
+
+networks:
+    traefik-public:
+        external: true

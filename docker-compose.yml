@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  bb:
+    image: ${REGISTRY:-localhost}/bb-dev:cache
+    build:
+      context: docker/development/nginx
+      cache_from:
+        - ${REGISTRY:-localhost}/bb-dev:cache
+    depends_on:
+      - bb-node
+    networks:
+        - traefik-public
+        - default
+    labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.http.routers.bb.rule=Host(`bb.localhost`)
+        - traefik.http.routers.bb.entryPoints=http
+
+  bb-node:
+    image: ${REGISTRY:-localhost}/bb-dev-node:cache
+    build:
+      context: docker/development/node
+      cache_from:
+        - ${REGISTRY:-localhost}/bb-dev-node:cache
+    ports:
+      - "${FRONTEND_NODE_PORT:-3000}:3000"
+    environment:
+        REACT_APP_FRONTEND_URL: ${REACT_APP_FRONTEND_URL}
+    volumes:
+      - .:/app
+    command: sh -c "until [ -f .ready ] ; do sleep 1 ; done && yarn start"
+    tty: true
+
+  bb-node-cli:
+    image: ${REGISTRY:-localhost}/bb-dev-node-cli:cache
+    build:
+      context: docker/development/node
+      cache_from:
+        - ${REGISTRY:-localhost}/bb-dev-node-cli:cache
+    volumes:
+      - .:/app
+
+networks:
+    traefik-public:
+        external: true

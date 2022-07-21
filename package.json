@@ -1,0 +1,85 @@
+{
+  "name": "bb",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.3",
+    "@mui/styles": "^5.5.3",
+    "@mui/x-data-grid": "^5.8.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "centrifuge": "^2.8.5",
+    "cookie": "^0.4.2",
+    "formik": "^2.2.9",
+    "i18next": "^21.6.14",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "i18next-http-backend": "^1.4.0",
+    "i18next-intervalplural-postprocessor": "^3.0.0",
+    "immutability-helper": "^3.1.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-i18next": "^11.16.2",
+    "react-redux": "^8.0.1",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.0",
+    "react-yandex-maps": "^4.6.0",
+    "styled-components": "^5.3.5",
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eslint": "eslint --ext .js,.jsx src",
+    "eslint-fix": "eslint --fix --ext .js,.jsx src",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^14.0.4",
+    "@welldone-software/why-did-you-render": "^7.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-testing-library": "^5.2.1",
+    "prettier": "^2.6.2",
+    "react-test-renderer": "^18.0.0",
+    "stylelint": "^14.6.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}
